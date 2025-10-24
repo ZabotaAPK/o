@@ -1,0 +1,491 @@
+<html>
+<head>
+<title>Результаты поиска погибших героев СВО с именем/фамилией </title>
+<meta name="description" content=""/>
+<link rel="canonical" href="search.html"/>
+<link href="favicon.ico" type="image/x-icon" rel="icon" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css@ver=1.3.5.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<style>
+body {
+	    font-family: Montserrat;
+		  font-weight: 400;
+      background: url(img/back-compress.jpg);
+    background-size: cover;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+ul{
+	font-weight: 600;
+}
+.description {
+    text-align: justify;
+}
+a.button {
+    color: white;
+    text-decoration: none;
+}
+a.button:hover {
+    color: #115dd8;
+}
+main {
+  max-width: 1100px;
+  margin: 5% auto;
+}
+
+.card {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
+  transition: 200ms;
+  background: #fff;
+  min-height: 80%;
+}
+.card .card__title {
+  display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  cursor: pointer;
+}
+.card .searchSection {
+  padding: 30px 40px;
+}
+.card .card__title h3 {
+  flex: 0 1 200px;
+  text-align: right;
+  margin: 0;
+  color: #252525;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.card .card__title .icon {
+  flex: 1 0 5px;
+  background: #115dd8;
+  color: #fff;
+  padding: 0px 10px;
+  transition: 200ms;
+}
+.icon a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+.card .card__title .icon > a {
+  color: #fff;
+}
+.card .card__title .icon:hover {
+  background: #252525;
+}
+.card .card__body {
+  padding: 0 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  margin-bottom: 25px;
+}
+.card .card__body > .half {
+  box-sizing: border-box;
+  padding: 0 15px;
+  flex: 1 0 50%;
+}
+.card .card__body .featured_text h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 35px;
+  color: #181e28;
+}
+.card .card__body .featured_text p {
+  margin: 0;
+  padding: 0;
+}
+.card .card__body .featured_text p.sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #686e77;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.card .card__body .featured_text p.price {
+  font-family: "Fjalla One", sans-serif;
+  color: #252525;
+  font-size: 26px;
+}
+.card .card__body .image {
+  padding-top: 15px;
+  width: 100%;
+}
+.card .card__body .image img {
+  display: block;
+  max-width: 300px;
+  height: auto;
+}
+.card .card__body .description {
+  margin-bottom: 25px;
+}
+.card .card__body .description p {
+  margin: 0;
+  font-weight: 300;
+  line-height: 27px;
+  font-size: 16px;
+  color: #555;
+}
+.card .card__body span.stock {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #a1cc16;
+}
+.card .card__body .reviews .stars {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+}
+.card .card__body .reviews .stars > li {
+  display: inline-block;
+}
+.card .card__body .reviews .stars > li .fa {
+  color: #f7c01b;
+}
+.card .card__body .reviews > span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #555;
+}
+.card .card__footer {
+  padding: 30px 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  align-items: center;
+  position: relative;
+  margin-top: 30px;
+}
+.card .card__footer::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 40px;
+  width: calc(100% - 40px);
+  height: 3px;
+  background: #115dd8;
+  background: linear-gradient(to right, #115dd8 0%, #115dd8 20%, #ddd 20%, #ddd 100%);
+}
+.card .card__footer .recommend {
+  flex: 1 0 10px;
+}
+.card .card__footer .recommend p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+.card .card__footer .recommend h2 {
+  margin: 0;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #115dd8;
+}
+.card .card__footer .action a.button {
+  cursor: pointer;
+  border: 1px solid #115dd8;
+  padding: 14px 30px;
+  border-radius: 200px;
+  color: #fff;
+  background: #115dd8;
+  font-size: 16px;
+  transition: 200ms;
+}
+.card .card__footer .action a.button:hover {
+  background: #fff;
+  color: #115dd8;
+}
+.blockSearchHero {
+    display: flex;
+	padding: 10px 0;
+}
+.textSearchHero h2 {
+    padding: 0 !important;
+    margin: 0;
+	font-size: 18px;
+}
+.textSearchHero h3 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+	font-size: 14px;
+}
+.textSearchHero {
+    padding: 0 10px;
+}
+.textSearchHero a.linkHero {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    color: #115dd8;
+}
+.blockHeaderHero h1 {
+    font-size: 22px;
+    text-align: center;
+	margin: 0;
+}
+.blockHeaderHero {
+    margin: 0 auto;
+    text-align: center;
+	margin-bottom: 20px;
+}
+form {
+    width: 90%;
+    border: solid 2px #115dd8;
+    padding: 5%;
+	font-family: Montserrat;
+}
+input[type="text"] {
+    width: 80%;
+    height: 40px;
+    border: solid 2px #115dd8;
+    font-size: 13px;
+    text-transform: uppercase;
+		font-family: Montserrat;
+}
+input[type="submit"] {
+    width: 19%;
+    height: 40px;
+    background-color: #115dd8;
+    border: solid 2px #115dd8;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+	font-family: Montserrat;
+}
+::placeholder {
+    color: #000000ab;
+    font-size: 13px;
+    text-transform: uppercase;
+	font-family: Montserrat;
+}
+body {
+    overflow: auto;
+}
+@media screen and (max-width: 600px) {
+	::placeholder {
+    font-size: 10px;
+}
+	input[type="submit"] {
+    width: 33%;
+    height: 40px;
+    background-color: #115dd8;
+    border: solid 2px #115dd8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+}
+input[type="text"] {
+    width: 65%;
+    height: 40px;
+    border: solid 2px #115dd8;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-family: Montserrat;
+}
+.card__body {
+    display: block !important;
+}
+.half {
+    flex: none !important;
+    width: 100%;
+}
+.card .card__body .description {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.featured_text {
+    text-align: center;
+}
+.card .card__body .image img {
+    margin: 0 auto;
+}
+}
+
+@media screen and (max-width: 500px) {
+	.blockSearchHero img {
+    display: none;
+}
+	.card .card__footer .action a.button {
+    padding: 14px 15px;
+    font-size: 15px;
+}
+.card__footer {
+    display: block !important;
+    text-align: center;
+}
+.action {
+    margin-top: 25px;
+}
+.card .card__body {
+    padding: 0 20px;
+}
+}
+</style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <div class="menuSecond">
+        <div onclick="location.href='/'" class="itemMenu">
+		Герои СВО
+		</div>
+		        <div onclick="location.href='/getbanner'" class="itemMenu">
+		Баннер
+		</div>
+				        <div onclick="location.href='/search'" class="itemMenu">
+		Поиск
+		</div>
+						        <div onclick="location.href='/addnew'" class="itemMenu">
+		Добавить
+		</div>
+		        <div id="sinodikLink" class="itemMenu">
+		Синодик
+		</div>
+      </div>
+<div class="searchSection">
+<form method="GET">
+<h1 class="onPage">Поиск по базе</h1>
+<input name="search" placeholder="Введите имя или фамилию" type="text" value="">
+<input type="submit" value="Искать">
+</form>
+<div style="font-size: 20px;text-align: center;color: red;">Введите в поисковую строку более 2х символов.</div>
+      <div class="card__footer">
+        <div class="recommend">
+          <h2>Победа и память!</h2>
+        </div>
+        <div class="action">
+        </div>
+      </div>
+	   </div>
+    </div>
+  </main>
+  <div id="sinodikBox"><select id="formR" name="background" class="widget"><option value="0">Все регионы</option><option value="01">Адыгея</option><option value="02">Башкортостан</option><option value="03">Бурятия</option><option value="04">Алтай</option><option value="05">Дагестан</option><option value="06">Ингушетия</option><option value="07">Кабардино-Балкарская Республика</option><option value="08">Калмыкия</option><option value="09">Карачаево-Черкесская Республика</option><option value="10">Карелия</option><option value="11">Коми</option><option value="12">Марий Эл</option><option value="13">Мордовия</option><option value="14">Якутия</option><option value="15">Северная Осетия - Алания</option><option value="16">Татарстан</option><option value="17">Тыва</option><option value="18">Удмуртская Республика</option><option value="19">Хакасия</option><option value="20">Чеченская Республика</option><option value="21">Чувашия</option><option value="22">Алтайский край</option><option value="23">Краснодарский край</option><option value="24">Красноярский край</option><option value="25">Приморский край</option><option value="26">Ставропольский край</option><option value="27">Хабаровский край</option><option value="28">Амурская область</option><option value="29">Архангельская область</option><option value="30">Астраханская область</option><option value="31">Белгородская область</option><option value="32">Брянская область</option><option value="33">Владимирская область</option><option value="34">Волгоградская область</option><option value="35">Вологодская область</option><option value="36">Воронежская область</option><option value="37">Ивановская область</option><option value="38">Иркутская область</option><option value="39">Калининградская область</option><option value="40">Калужская область</option><option value="41">Камчатский край</option><option value="42">Кемеровская область</option><option value="43">Кировская область</option><option value="44">Костромская область</option><option value="45">Курганская область</option><option value="46">Курская область</option><option value="47">Ленинградская область</option><option value="48">Липецкая область</option><option value="49">Магаданская область</option><option value="50">Московская область</option><option value="51">Мурманская область</option><option value="52">Нижегородская область</option><option value="53">Новгородская область</option><option value="54">Новосибирская область</option><option value="55">Омская область</option><option value="56">Оренбургская область</option><option value="57">Орловская область</option><option value="58">Пензенская область</option><option value="59">Пермский край</option><option value="60">Псковская область</option><option value="61">Ростовская область</option><option value="62">Рязанская область</option><option value="63">Самарская область</option><option value="64">Саратовская область</option><option value="65">Сахалинская область</option><option value="66">Свердловская область</option><option value="67">Смоленская область</option><option value="68">Тамбовская область</option><option value="69">Тверская область</option><option value="70">Томская область</option><option value="71">Тульская область</option><option value="72">Тюменская область</option><option value="73">Ульяновская область</option><option value="74">Челябинская область</option><option value="75">Забайкальский край</option><option value="76">Ярославская область</option><option value="77">Москва</option><option value="78">Санкт-Петербург</option><option value="79">Еврейская АО</option><option value="83">Ненецкий АО</option><option value="86">Ханты-Мансийский АО</option><option value="87">Чукотский АО</option><option value="89">Ямало-Ненецкий АО</option><option value="90">Запорожская область</option><option value="91">Республика Крым</option><option value="92">Севастополь</option><option value="93">ДНР</option><option value="94">ЛНР</option><option value="95">Херсонская область</option><option value="99"></option></select><span id="closeMessButton3">x</span></div>
+  <script>
+	//синодик
+document.getElementById('sinodikLink').addEventListener('click', function (e) {
+
+	function goSinodik(){
+	  return $.ajax({
+	  data : {action: 'sinodik'},
+	  dataType: 'json',
+      url: "getvalue.php",
+	  type: "post"
+});
+  	  }
+	  var getSinodik = goSinodik();
+	  var testPrint = getSinodik.success(function (data) {
+		  var textNode = '<h2 class="headSinodik">Синодик</h2><p>Упокой, Господи, души усопших раб Твоих<br><br>' + data + '<br><br>, и прости им вся согрешения вольная и невольная, и даруй им Царствие Небесное.</p>';
+  	
+	var testBlock = document.getElementById('div1');
+	var sinodikPlace = document.getElementById('sinodikBox');
+		document.getElementById('formR').value=0;
+	if(testBlock){
+		testBlock.innerHTML = textNode;
+	}
+	else{
+	var newNode = document.createElement('div');
+	newNode.setAttribute("id", "div1");
+	newNode.innerHTML = textNode;
+	sinodikPlace.appendChild(newNode);
+	}
+	sinodikPlace.style.display = 'block';
+
+  	    var cl = document.getElementById('closeMessButton3');
+cl.addEventListener('click', function (e) {
+  var div3 = document.getElementById('sinodikBox');
+  div3.style.display = 'none';
+});
+});
+});
+
+
+document.querySelector('#formR').addEventListener("change", function() {
+var regValue = this.value;
+	function goSinodik(regValue){
+	  return $.ajax({
+	  data : {action: 'sinodik', regi: regValue},
+	  dataType: 'json',
+      url: "/getvalue.php",
+	  type: "post"
+});
+  	  }
+
+	  var getSinodik = goSinodik(regValue);
+	  var testPrint = getSinodik.success(function (data) {
+		  var textNode = '<h2 class="headSinodik">Синодик</h2><p>Упокой, Господи, души усопших раб Твоих<br><br>' + data + '<br><br>, и прости им вся согрешения вольная и невольная, и даруй им Царствие Небесное.</p>';
+  	var testBlock = document.getElementById('div1');
+	var sinodikPlace = document.getElementById('sinodikBox');
+	if(testBlock){
+		testBlock.innerHTML = textNode;
+	}
+	else{
+	var newNode = document.createElement('div');
+	newNode.setAttribute("id", "div1");
+	newNode.innerHTML = textNode;
+	sinodikPlace.appendChild(newNode);
+	}
+	sinodikPlace.style.display = 'block';
+
+  	    var cl = document.getElementById('closeMessButton3');
+cl.addEventListener('click', function (e) {
+  var div3 = document.getElementById('sinodikBox');
+  div3.style.display = 'none';
+});
+
+});
+
+
+
+});
+  </script>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(91406104, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/91406104" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXB0FF00YB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZXB0FF00YB');
+</script></body>
+
+</html>
